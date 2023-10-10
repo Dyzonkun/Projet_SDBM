@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./dist/style.css">
 </head>
 <body>
-<?php $Titre = "Types_bieres"?>
+<?php $Titre = "Articles"?>
 <div class="flex md:justify-center mt-20 mb-12">
     <button class="px-6 py-2 mb-2 ml-8 bg-green-500 hover:bg-green-600 text-white rounded transition duration-300 ease-in-out modal-open">Ajouter</button>
     <input type="text" class="w-32 md:w-64 px-4 md:mr-32 py-1 mb-2 ml-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-200 focus:border-blue-500" placeholder="Rechercher...">
@@ -22,7 +22,7 @@
                     ID
                 </th>
                 <th scope="col" class="md:px-6 md:py-3 px-5 py-1">
-                    Type_Biere
+                    Article
                 </th>
                 <th scope="col" class="md:px-6 md:py-3 px-5 py-1">
                     Actions
@@ -30,13 +30,13 @@
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($typesbieres as $typebiere): ?>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" data-nom-typebiere="<?= $typebiere['NOM_TYPE'] ?>">
-                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"><?= $typebiere['ID_TYPE'] ?></td>
-                    <td class="px-6 py-4"><?= $typebiere['NOM_TYPE'] ?></td>
+            <?php foreach ($articles as $article): ?>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" data-nom-article="<?= $article['NOM_ARTICLE'] ?>">
+                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"><?= $article['ID_ARTICLE'] ?></td>
+                    <td class="px-6 py-4"><?= $article['NOM_ARTICLE'] ?></td>
                     <td class="px-6 py-4">
-                        <button class="px-2 py-1 mb-2 sm:mb-0 bg-blue-500 hover:bg-blue-600 text-white rounded modal-modif-open" data-typebiere-id="<?= $typebiere['NOM_TYPE'] ?>">Modifier</button>
-                        <button class="px-2 py-1 bg-red-500 text-white hover:bg-red-600 rounded modal-delete-open"data-typebiere-id="<?= $typebiere['ID_TYPE'] ?>">Supprimer</button>
+                        <button class="px-2 py-1 mb-2 sm:mb-0 bg-blue-500 hover:bg-blue-600 text-white rounded modal-modif-open" data-article-id="<?= $article['ID_ARTICLE'] ?>">Modifier</button>
+                        <button class="px-2 py-1 bg-red-500 text-white hover:bg-red-600 rounded modal-delete-open"data-article-id="<?= $article['ID_ARTICLE'] ?>">Supprimer</button>
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -61,11 +61,11 @@
         </div>
 
         <!-- Contenu de la fenêtre modale -->
-        <h2 class="text-2xl font-semibold mb-4">Ajouter d'un type de biere</h2>
-        <form method="POST" action="<?= PATH ?>/types_bieres/ajouterType_biere">
+        <h2 class="text-2xl font-semibold mb-4">Ajouter un article</h2>
+        <form method="POST" action="<?= PATH ?>/articles/ajouterArticle">
             <div class="mb-4">
-                <label for="typebiere" class="block text-gray-600">Nom du type de biere :</label>
-                <input type="text" id="typebiere" name="Nom_Ajout" class="w-full border rounded-md px-3 py-2 mt-1">
+                <label for="article" class="block text-gray-600">Nom de l'article :</label>
+                <input type="text" id="article" name="Nom_Ajout" class="w-full border rounded-md px-3 py-2 mt-1">
             </div>
 
             <div class="flex justify-end">
@@ -90,12 +90,13 @@
         </div>
 
         <!-- Contenu de la fenêtre modale -->
-        <h2 class="text-2xl font-semibold mb-4">Modifier un type de biere</h2>
-        <form method="POST" action="<?= PATH ?>/types_bieres/modifierType_biere">
+        <h2 class="text-2xl font-semibold mb-4">Modifier un article</h2>
+        <form method="POST" action="<?= PATH ?>/articles/modifierArticle">
             <div class="mb-4">
-                <label for="new-typebiere-name" class="block text-gray-600">Nouveau nom d'un type de biere:</label>
-                <input type="text" id="new-typebiere-name" name="Nom_Modif" class="w-full border rounded-md px-3 py-2 mt-1">
-                <input type="hidden" name="Code_Modif" id="modif-typebiere-id">
+                <label for="new-articles-name" class="block text-gray-600">Nouvel article:</label>
+                <select name="?" id="?" class="w-full border rounded-md px-3 py-2 mt-1"></select>
+                <input type="text" id="new-article-name" name="Nom_Modif" class="w-full border rounded-md px-3 py-2 mt-1">
+                <input type="hidden" name="Code_Modif" id="modif-article-id">
             </div>
 
             <div class="flex justify-end">
@@ -118,9 +119,9 @@
 
         <!-- Contenu de la fenêtre modale -->
         <h2 class="text-2xl font-semibold mb-4">Confirmer la suppression</h2>
-        <form method="POST" action="<?= PATH ?>/types_bieres/supprimerType_biere">
+        <form method="POST" action="<?= PATH ?>/articles/supprimerArticle">
             <p class="mb-4">Êtes-vous sûr de vouloir supprimer cet élément ? Cette action est irréversible.</p>
-            <input type="hidden" name="Code_Suppr" id="suppr-typebiere-id">
+            <input type="hidden" name="Code_Suppr" id="suppr-article-id">
             <div class="flex justify-end">
                 <button type="submit" class="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded ">Supprimer</button>
                 <button class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded modal-close ml-2 modal-delete-cancel">Annuler</button>

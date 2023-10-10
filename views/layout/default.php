@@ -15,8 +15,9 @@
             <li><a href="<?= PATH ?>/continents" class="text-white hover:text-gray-400">Continents</a></li>
             <li><a href="<?= PATH ?>/payss"  class="text-white hover:text-gray-400">Pays</a></li>
             <li><a href="#" class="text-white hover:text-gray-400">Fabricants</a></li>
-            <li><a href="#" class="text-white hover:text-gray-400">Couleurs</a></li>
-            <li><a href="#" class="text-white hover:text-gray-400">Types de Bière</a></li>
+            <li><a href="<?= PATH ?>/couleurs" class="text-white hover:text-gray-400">Couleurs</a></li>
+            <li><a href="<?= PATH ?>/types_bieres" class="text-white hover:text-gray-400">Types de Bières</a></li>
+            <li><a href="<?= PATH ?>/articles" class="text-white hover:text-gray-400">Nos Articles</a></li>
         </ul>
         <nav class="container mx-auto flex justify-between items-center">
             <!-- Nom du site pour petits écrans (mobiles) -->
@@ -39,8 +40,9 @@
                 <li><a href="<?= PATH ?>/continent" class="text-white block px-4 py-2">Continents</a></li>
                 <li><a href="#" class="text-white block px-4 py-2">Pays</a></li>
                 <li><a href="#" class="text-white block px-4 py-2">Fabricants</a></li>
-                <li><a href="#" class="text-white block px-4 py-2">Couleurs</a></li>
-                <li><a href="#" class="text-white block px-4 py-2">Types de Bière</a></li>
+                <li><a href="<?= PATH ?>/couleurs" class="text-white block px-4 py-2">Couleurs</a></li>
+                <li><a href="<?= PATH ?>/types_bieres" class="text-white block px-4 py-2">Types de Bières</a></li>
+                <li><a href="<?= PATH ?>/articles" class="text-white hover:text-gray-400">Nos Articles</a></li>
             </ul>
         </div>
     </div>

@@ -1,9 +1,9 @@
 <?php
-class Couleurs extends Controller{
+class Articles extends Controller{
     public function index()
     {
-        $this->loadModel('Couleur');
-        $couleurs = $this->Couleur->getAll();
+        $this->loadModel('Article');
+        $articles = $this->Article->getAll();
         $scriptJS="
         const modalAjout = document.getElementById('modal-ajout');
         const modalModif = document.getElementById('modal-modif');
@@ -15,7 +15,7 @@ class Couleurs extends Controller{
         const openModalDeleteBtns = document.querySelectorAll('.modal-delete-open');
         const closeModalDeleteBtn = modalDelete.querySelector('.modal-close');
         const modalDeleteCancelBtn = modalDelete.querySelector('.modal-delete-cancel');
-        const newCouleurNameInput = modalModif.querySelector('#new-couleur-name'); 
+        const newArticleNameInput = modalModif.querySelector('#new-article-name'); 
         
         openModalAjoutBtn.addEventListener('click', () => {
             modalAjout.classList.remove('hidden');
@@ -27,13 +27,13 @@ class Couleurs extends Controller{
         
         openModalModifBtns.forEach((btn) => {
             btn.addEventListener('click', () => {
-                const nomCouleur = btn.parentElement.previousElementSibling.textContent;
-                const couleurId = btn.dataset.couleurId;
-                const newCouleurNameInput = document.getElementById('new-couleur-name');
-                const modifCouleurIdInput = document.getElementById('modif-couleur-id');
+                const nomArticle = btn.parentElement.previousElementSibling.textContent;
+                const articleId = btn.dataset.articleId;
+                const newArticleNameInput = document.getElementById('new-article-name');
+                const modifArticleIdInput = document.getElementById('modif-article-id');
         
-                newCouleurNameInput.value = nomCouleur;
-                modifCouleurIdInput.value = couleurId;
+                newArticleNameInput.value = nomArticle;
+                modifArticleIdInput.value = articleId;
                 
                 modalModif.classList.remove('hidden');
 
@@ -46,10 +46,10 @@ class Couleurs extends Controller{
         
         openModalDeleteBtns.forEach((btn) => {
             btn.addEventListener('click', () => {
-                const couleurId = btn.dataset.couleurId; // Récupérer l'ID à partir de l'attribut de données
-                const supprCouleurIdInput = document.getElementById('suppr-couleur-id');
+                const articleId = btn.dataset.articleId; // Récupérer l'ID à partir de l'attribut de données
+                const supprArticleIdInput = document.getElementById('suppr-article-id');
         
-                supprCouleurIdInput.value = couleurId; // Définir la valeur de l'input avec l'ID du couleur
+                supprArticleIdInput.value = articleId; // Définir la valeur de l'input avec l'ID de l'article
         
                 modalDelete.classList.remove('hidden');
             });
@@ -62,36 +62,36 @@ class Couleurs extends Controller{
         modalDeleteCancelBtn.addEventListener('click', () => { 
             modalDelete.classList.add('hidden'); 
         });";
-        $this->render('index', compact('scriptJS','couleurs'));
+        $this->render('index', compact('scriptJS','articles'));
 
     }
 
-    public function ajouterCouleur(){
+    public function ajouterArticle(){
         if(isset($_POST['Nom_Ajout'])){
-            $this->loadModel('Couleur');
-            $this->Couleur->insert($_POST['Nom_Ajout']);
+            $this->loadModel('Article');
+            $this->Article->insert($_POST['Nom_Ajout']);
         }
-        $newUrl = PATH.'/couleurs';
+        $newUrl = PATH.'/articles';
         header("Location: $newUrl");
     }
-    public function modifierCouleur() {
+    public function modifierArticle() {
 
         if (isset($_POST['Code_Modif']) && isset($_POST['Nom_Modif'])) {
-            $this->loadModel('Couleur');
+            $this->loadModel('Article');
             $ind = $_POST['Code_Modif'];
             $nom = $_POST['Nom_Modif'];
-            $this->Couleur->modifier($ind, $nom);
-            $newUrl = PATH . '/couleurs';
+            $this->Article->modifier($ind, $nom);
+            $newUrl = PATH . '/articles';
             header("Location: $newUrl");
         }
     }
-    public function supprimerCouleur(){
+    public function supprimerArticle(){
 
         if(isset($_POST['Code_Suppr'])){
-            $this->loadModel('Couleur');
+            $this->loadModel('Article');
             $ind = $_POST['Code_Suppr'];
-            $this->Couleur->supprimer($ind);
-            $newUrl = PATH . '/couleurs';
+            $this->Article->supprimer($ind);
+            $newUrl = PATH . '/articles';
             header("Location: $newUrl");
         }
 
