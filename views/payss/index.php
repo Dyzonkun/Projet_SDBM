@@ -138,7 +138,7 @@
     <h2 class="text-2xl font-semibold mb-4">Confirmer la suppression</h2>
     <form method="POST" action="<?= PATH ?>/payss/supprimerPays">
         <p class="mb-4">Êtes-vous sûr de vouloir supprimer cet élément ? Cette action est irréversible.</p>
-        <input type="" name="Code_Suppr" id="suppr-pays-id">
+        <input type="hidden" name="Code_Suppr" id="suppr-pays-id">
         <div class="flex justify-end">
             <button type="submit" class="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded ">Supprimer</button>
             <button type="reset" class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded modal-close ml-2 modal-delete-cancel">Annuler</button>
