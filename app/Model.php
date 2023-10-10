@@ -24,11 +24,14 @@ abstract class Model{
         }
     }   
 
-    public function getAll(){
+    public function getAll(string $ordre_tri=""){
         $sql = "SELECT * FROM ".$this->table;
+        if ($ordre_tri != "") {
+            $sql .= " ORDER BY ".$ordre_tri;
+        }
         $query = $this->_connexion->prepare($sql);
         $query->execute();
-        return $query->fetchAll();
+        return $query->fetchAll();    
     }
 
     public function getOne(){
@@ -37,4 +40,5 @@ abstract class Model{
         $query->execute();
         return $query->fetch();
     }
+
 }

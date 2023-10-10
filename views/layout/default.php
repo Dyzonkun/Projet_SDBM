@@ -10,10 +10,10 @@
 <header>
     <div class="bg-zinc-950 py-5">
         <!-- Menu principal (écrans larges) au centre -->
-        <ul class="hidden md:flex space-x-6 justify-center">
+        <ul class="hidden md:flex space-x-6 justify-center text-2xl">
             <li><a href="<?= PATH ?>/home" class="text-white hover:text-gray-400">Accueil</a></li>
             <li><a href="<?= PATH ?>/continents" class="text-white hover:text-gray-400">Continents</a></li>
-            <li><a href="#" class="text-white hover:text-gray-400">Pays</a></li>
+            <li><a href="<?= PATH ?>/payss"  class="text-white hover:text-gray-400">Pays</a></li>
             <li><a href="#" class="text-white hover:text-gray-400">Fabricants</a></li>
             <li><a href="<?= PATH ?>/couleurs" class="text-white hover:text-gray-400">Couleurs</a></li>
             <li><a href="<?= PATH ?>/types_bieres" class="text-white hover:text-gray-400">Types de Bières</a></li>
@@ -22,7 +22,7 @@
         <nav class="container mx-auto flex justify-between items-center">
             <!-- Nom du site pour petits écrans (mobiles) -->
             <div class="md:hidden">
-                <a href="#" class="text-white text-2xl font-semibold ml-4">Société des bières du monde</a>
+                <a href="#" class="text-white text-2xl font-semibold ml-4">SDBM</a>
             </div>
             <!-- Menu hamburger pour les écrans étroits à droite -->
             <div class="md:hidden ml-auto mr-4">
