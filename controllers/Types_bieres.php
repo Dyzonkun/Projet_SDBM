@@ -29,7 +29,7 @@ class Types_bieres extends Controller
         openModalModifBtns.forEach((btn) => {
             btn.addEventListener('click', () => {
                 const nomType_biere = btn.parentElement.previousElementSibling.textContent;
-                const typebiereId = btn.dataset.typebiereId;
+                const typebiereId = btn.parentElement.parentElement.querySelector('td:nth-child(1)').textContent;;
                 const newType_biereNameInput = document.getElementById('new-typebiere-name');
                 const modifType_biereIdInput = document.getElementById('modif-typebiere-id');
         
