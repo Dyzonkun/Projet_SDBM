@@ -14,7 +14,8 @@
             <li><a href="<?= PATH ?>/home" class="text-white hover:text-gray-400">Accueil</a></li>
             <li><a href="<?= PATH ?>/continents" class="text-white hover:text-gray-400">Continents</a></li>
             <li><a href="#" class="text-white hover:text-gray-400">Pays</a></li>
-            <li><a href="#" class="text-white hover:text-gray-400">Fabricants</a></li>
+            <li><a href="<?= PATH ?>/fabricants" class="text-white hover:text-gray-400">Fabricants</a></li>
+            <li><a href="<?= PATH ?>/marques" class="text-white hover:text-gray-400">Marques</a></li>
             <li><a href="#" class="text-white hover:text-gray-400">Couleurs</a></li>
             <li><a href="#" class="text-white hover:text-gray-400">Types de Bière</a></li>
         </ul>
@@ -38,7 +39,8 @@
                 <li><a href="<?= PATH ?>/home" class="text-white block px-4 py-2">Accueil</a></li>
                 <li><a href="<?= PATH ?>/continent" class="text-white block px-4 py-2">Continents</a></li>
                 <li><a href="#" class="text-white block px-4 py-2">Pays</a></li>
-                <li><a href="#" class="text-white block px-4 py-2">Fabricants</a></li>
+                <li><a href="<?= PATH ?>/fabricants" class="text-white block px-4 py-2">Fabricants</a></li>
+                <li><a href="<?= PATH ?>/marques" class="text-white block px-4 py-2">Marques</a></li>
                 <li><a href="#" class="text-white block px-4 py-2">Couleurs</a></li>
                 <li><a href="#" class="text-white block px-4 py-2">Types de Bière</a></li>
             </ul>
@@ -58,6 +60,7 @@
     menuToggle.addEventListener('click', () => {
         menu.classList.toggle('hidden');
     });
+    <?= $scriptJS ?>
 </script>
 </body> 
 </html>

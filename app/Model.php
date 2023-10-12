@@ -24,13 +24,16 @@ abstract class Model{
         }
     }   
 
-    public function getAll(){
+    public function getAll(string $ordre_tri=""){
         $sql = "SELECT * FROM ".$this->table;
+        if ($ordre_tri != "") {
+            $sql .= " ORDER BY ".$ordre_tri;
+        }
         $query = $this->_connexion->prepare($sql);
         $query->execute();
         return $query->fetchAll();
     }
-
+    
     public function getOne(){
         $sql = "SELECT * FROM " . $this->table . " WHERE id=" . $this->id;
         $query = $this->_connexion->prepare($sql);
