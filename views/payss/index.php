@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="./dist/style.css">
-</head>
-<body>
 <?php $Titre = "Pays"?>
 <div class="flex sm:justify-center mt-4 mb-4">
-    <button class="px-4 py-2 mb-2 ml-2 bg-green-500 hover:bg-green-600 text-white rounded-md transition duration-300 ease-in-out modal-open">Ajouter</button>
-    <input type="text" class="w-24 sm:w-32 px-2 sm:mr-2 py-1 mb-2 ml-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-200 focus:border-blue-500" placeholder="Rechercher...">
+    <button class="px-6 py-2 mb-2 ml-8 bg-green-500 hover:bg-green-600 text-white rounded transition duration-300 ease-in-out modal-open">Ajouter</button>
+    <input type="text" class="w-32 md:w-64 px-4 md:mr-32 py-1 mb-2 ml-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-200 focus:border-blue-500" placeholder="Rechercher...">
 </div>
 <div class="flex justify-center mt-4 mb-64">
     <div class="relative overflow-x-auto">
@@ -138,7 +129,7 @@
     <h2 class="text-2xl font-semibold mb-4">Confirmer la suppression</h2>
     <form method="POST" action="<?= PATH ?>/payss/supprimerPays">
         <p class="mb-4">Êtes-vous sûr de vouloir supprimer cet élément ? Cette action est irréversible.</p>
-        <input type="" name="Code_Suppr" id="suppr-pays-id">
+        <input type="hidden" name="Code_Suppr" id="suppr-pays-id">
         <div class="flex justify-end">
             <button type="submit" class="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded ">Supprimer</button>
             <button type="reset" class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded modal-close ml-2 modal-delete-cancel">Annuler</button>
@@ -146,8 +137,3 @@
     </form>
     </div>
 </div>
-<script>
-    <?= $scriptJS ?>
-</script>
-</body>
-</html>

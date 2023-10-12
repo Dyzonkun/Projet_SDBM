@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="./dist/style.css">
-</head>
-<body>
 <?php $Titre = "Accueil"?>
 <section>
 <h1 class="text-center font-bold text-4xl mt-4 mb-8">NOS BIÈRES</h1>
@@ -71,5 +62,3 @@
     </div>
 </div>
 </section>
-</body>
-</html>
