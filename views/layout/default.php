@@ -60,7 +60,7 @@
     menuToggle.addEventListener('click', () => {
         menu.classList.toggle('hidden');
     });
-    <?= $scriptJS ?>
+    
 </script>
 </body> 
 </html>
