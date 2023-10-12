@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="./dist/style.css">
-</head>
-<body>
 <?php $Titre = "Types_bieres"?>
 <div class="flex md:justify-center mt-20 mb-12">
     <button class="px-6 py-2 mb-2 ml-8 bg-green-500 hover:bg-green-600 text-white rounded transition duration-300 ease-in-out modal-open">Ajouter</button>
@@ -131,6 +122,3 @@
 <script>
     <?= $scriptJS;?>
 </script>
-
-</body>
-</html>
