@@ -137,3 +137,6 @@
     </form>
     </div>
 </div>
+<script>
+    <?= $scriptJS;?>
+</script>
