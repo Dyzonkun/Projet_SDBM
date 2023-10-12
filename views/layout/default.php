@@ -10,19 +10,21 @@
 <header>
     <div class="bg-zinc-950 py-5">
         <!-- Menu principal (écrans larges) au centre -->
-        <ul class="hidden md:flex space-x-6 justify-center">
+        <ul class="hidden md:flex space-x-6 justify-center text-2xl">
             <li><a href="<?= PATH ?>/home" class="text-white hover:text-gray-400">Accueil</a></li>
             <li><a href="<?= PATH ?>/continents" class="text-white hover:text-gray-400">Continents</a></li>
-            <li><a href="#" class="text-white hover:text-gray-400">Pays</a></li>
+            <li><a href="<?= PATH ?>/payss"  class="text-white hover:text-gray-400">Pays</a></li>
             <li><a href="<?= PATH ?>/fabricants" class="text-white hover:text-gray-400">Fabricants</a></li>
             <li><a href="<?= PATH ?>/marques" class="text-white hover:text-gray-400">Marques</a></li>
-            <li><a href="#" class="text-white hover:text-gray-400">Couleurs</a></li>
-            <li><a href="#" class="text-white hover:text-gray-400">Types de Bière</a></li>
+            <li><a href="<?= PATH ?>/couleurs" class="text-white hover:text-gray-400">Couleurs</a></li>
+            <li><a href="<?= PATH ?>/types_bieres" class="text-white hover:text-gray-400">Types de Bières</a></li>
+            <li><a href="<?= PATH ?>/articles" class="text-white hover:text-gray-400">Nos Articles</a></li>
+
         </ul>
         <nav class="container mx-auto flex justify-between items-center">
             <!-- Nom du site pour petits écrans (mobiles) -->
             <div class="md:hidden">
-                <a href="#" class="text-white text-2xl font-semibold ml-4">Société des bières du monde</a>
+                <a href="#" class="text-white text-2xl font-semibold ml-4">SDBM</a>
             </div>
             <!-- Menu hamburger pour les écrans étroits à droite -->
             <div class="md:hidden ml-auto mr-4">
@@ -36,13 +38,14 @@
         <!-- Menu déroulant pour les écrans étroits -->
         <div id="menu" class="md:hidden text-left hidden">
             <ul class="py-4 space-y-2">
-                <li><a href="<?= PATH ?>/home" class="text-white block px-4 py-2">Accueil</a></li>
-                <li><a href="<?= PATH ?>/continent" class="text-white block px-4 py-2">Continents</a></li>
-                <li><a href="#" class="text-white block px-4 py-2">Pays</a></li>
-                <li><a href="<?= PATH ?>/fabricants" class="text-white block px-4 py-2">Fabricants</a></li>
-                <li><a href="<?= PATH ?>/marques" class="text-white block px-4 py-2">Marques</a></li>
-                <li><a href="#" class="text-white block px-4 py-2">Couleurs</a></li>
-                <li><a href="#" class="text-white block px-4 py-2">Types de Bière</a></li>
+            <li><a href="<?= PATH ?>/home" class="text-white hover:text-gray-400">Accueil</a></li>
+            <li><a href="<?= PATH ?>/continents" class="text-white hover:text-gray-400">Continents</a></li>
+            <li><a href="<?= PATH ?>/payss"  class="text-white hover:text-gray-400">Pays</a></li>
+            <li><a href="<?= PATH ?>/fabricants" class="text-white hover:text-gray-400">Fabricants</a></li>
+            <li><a href="<?= PATH ?>/marques" class="text-white hover:text-gray-400">Marques</a></li>
+            <li><a href="<?= PATH ?>/couleurs" class="text-white hover:text-gray-400">Couleurs</a></li>
+            <li><a href="<?= PATH ?>/types_bieres" class="text-white hover:text-gray-400">Types de Bières</a></li>
+            <li><a href="<?= PATH ?>/articles" class="text-white hover:text-gray-400">Nos Articles</a></li>
             </ul>
         </div>
     </div>
