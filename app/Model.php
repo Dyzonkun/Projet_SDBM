@@ -33,7 +33,7 @@ abstract class Model{
         $query->execute();
         return $query->fetchAll();    
     }
-
+    
     public function getOne(){
         $sql = "SELECT * FROM " . $this->table . " WHERE id=" . $this->id;
         $query = $this->_connexion->prepare($sql);
