@@ -64,6 +64,7 @@ class Payss extends Controller {
         modalDeleteCancelBtn.addEventListener('click', () => {
             modalDelete.classList.add('hidden');
         });";
+        
         $this->loadModel('Pays');
         $paysModel = $this->Pays;
         $paysModel->getConnection();

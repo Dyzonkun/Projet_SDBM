@@ -2,8 +2,7 @@
 class Articles extends Controller{
     public function index()
     {
-        $this->loadModel('Article');
-        $articles = $this->Article->getAll();
+   
         $scriptJS="
         const modalAjout = document.getElementById('modal-ajout');
         const modalModif = document.getElementById('modal-modif');
@@ -27,14 +26,22 @@ class Articles extends Controller{
         
         openModalModifBtns.forEach((btn) => {
             btn.addEventListener('click', () => {
-                const nomArticle = btn.parentElement.previousElementSibling.textContent;
-                const articleId = btn.dataset.articleId;
-                const newArticleNameInput = document.getElementById('new-article-name');
-                const modifArticleIdInput = document.getElementById('modif-article-id');
-        
-                newArticleNameInput.value = nomArticle;
-                modifArticleIdInput.value = articleId;
-                
+                const id_article = btn.parentElement.parentElement.querySelector('td:nth-child(1)').textContent;
+                const nom_article = btn.parentElement.parentElement.querySelector('td:nth-child(2)').textContent;
+                const prix_achat = btn.parentElement.parentElement.querySelector('td:nth-child(3)').textContent;
+                const volume = btn.parentElement.parentElement.querySelector('td:nth-child(4)').textContent;
+                const titrage = btn.parentElement.parentElement.querySelector('td:nth-child(5)').textContent;
+                const Newid_article = document.getElementById('id_article_modif');
+                const Newnom_article = document.getElementById('id_nom_modif');
+                const Newprix_achat = document.getElementById('id_prix_modif');
+                const Newvolume = document.getElementById('id_volume_modif');
+                const Newtitrage = document.getElementById('id_titrage_modif');
+                Newid_article.value = id_article;
+                Newnom_article.value = nom_article;
+                Newprix_achat.value = prix_achat;
+                Newvolume.value = volume;
+                Newtitrage.value = titrage;
+
                 modalModif.classList.remove('hidden');
 
             });
@@ -46,11 +53,9 @@ class Articles extends Controller{
         
         openModalDeleteBtns.forEach((btn) => {
             btn.addEventListener('click', () => {
-                const articleId = btn.dataset.articleId; // Récupérer l'ID à partir de l'attribut de données
-                const supprArticleIdInput = document.getElementById('suppr-article-id');
-        
-                supprArticleIdInput.value = articleId; // Définir la valeur de l'input avec l'ID de l'article
-        
+                const id_Article = btn.parentElement.parentElement.querySelector('td:nth-child(1)').textContent;
+                const new_id_Article = document.getElementById('suppr-article-id');
+                new_id_Article.value = id_Article;
                 modalDelete.classList.remove('hidden');
             });
         });
@@ -62,29 +67,42 @@ class Articles extends Controller{
         modalDeleteCancelBtn.addEventListener('click', () => { 
             modalDelete.classList.add('hidden'); 
         });";
-        $this->render('index', compact('scriptJS','articles'));
+        $this->loadModel('Article');
+        $article = $this->Article;
+        $article->getConnection();
+        $articles = $article->obtenirArticle();
+
+        $this->loadModel('Marque');
+        $marques = $this->Marque->getAll('NOM_MARQUE asc');
+
+        $this->loadModel('Couleur');
+        $couleurs = $this->Couleur->getAll('NOM_COULEUR asc');
+
+        $this->loadModel('Type_biere');
+        $types_bieres = $this->Type_biere->getAll('NOM_TYPE asc');
+
+
+        $this->render('index', compact('scriptJS', 'articles', 'marques', 'couleurs', 'types_bieres'));
 
     }
 
-    public function ajouterArticle(){
-        if(isset($_POST['Nom_Ajout'])){
+    public function ajouterArticle()
+    {
+        if (isset($_POST['Nom_Ajout'])&& isset($_POST['Prix_Ajout'])&& isset($_POST['Volume_Ajout']) && isset($_POST['Titrage_Ajout']) && isset($_POST['marque_Ajout']) && isset($_POST['couleur_Ajout']) && isset($_POST['type_Ajout']) ) {
             $this->loadModel('Article');
-            $this->Article->insert($_POST['Nom_Ajout']);
+            $articleAjout = $_POST['Nom_Ajout'];
+            $prixAjout = $_POST['Prix_Ajout'];
+            $volumeAjout = $_POST['Volume_Ajout'];
+            $titrageAjout = $_POST['Titrage_Ajout'];
+            $marqueAjout = $_POST['marque_Ajout'];
+            $couleurAjout = $_POST['couleur_Ajout'];
+            $typeAjout = $_POST['type_Ajout'];
+            $this->Article->inserer($articleAjout, $prixAjout, $volumeAjout, $titrageAjout, $marqueAjout, $couleurAjout, $typeAjout);
         }
-        $newUrl = PATH.'/articles';
+        $newUrl = PATH . '/articles';
         header("Location: $newUrl");
     }
-    public function modifierArticle() {
 
-        if (isset($_POST['Code_Modif']) && isset($_POST['Nom_Modif'])) {
-            $this->loadModel('Article');
-            $ind = $_POST['Code_Modif'];
-            $nom = $_POST['Nom_Modif'];
-            $this->Article->modifier($ind, $nom);
-            $newUrl = PATH . '/articles';
-            header("Location: $newUrl");
-        }
-    }
     public function supprimerArticle(){
 
         if(isset($_POST['Code_Suppr'])){
@@ -94,7 +112,24 @@ class Articles extends Controller{
             $newUrl = PATH . '/articles';
             header("Location: $newUrl");
         }
-
     }
 
+    public function modifierArticle()
+    {
+        if (isset ($_POST['Code_Modif']) && isset($_POST['Nom_Modif']) && isset($_POST['Prix_Modif'])&& isset($_POST['Volume_Modif']) && isset($_POST['Titrage_Modif']) && isset($_POST['Marque_Modif']) && isset($_POST['Couleur_Modif']) && isset($_POST['Type_Modif'])) {
+            $this->loadModel('Article');
+            $codeModif = $_POST['Code_Modif'];
+            $articleModif = $_POST['Nom_Modif'];
+            $prixModif = $_POST['Prix_Modif'];
+            $volumeModif = $_POST['Volume_Modif'];
+            $titrageModif = $_POST['Titrage_Modif'];
+            $marqueModif = $_POST['Marque_Modif'];
+            $couleurModif = $_POST['Couleur_Modif'];
+            $typeModif = $_POST['Type_Modif'];
+
+            $this->Article->modifier($codeModif, $articleModif, $prixModif, $volumeModif, $titrageModif,  $marqueModif, $couleurModif, $typeModif );
+        }
+        $newUrl = PATH . '/articles';
+        header("Location: $newUrl");
+    }
 }
