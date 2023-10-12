@@ -701,10 +701,6 @@ video {
   width: 100%;
 }
 
-.w-24 {
-  width: 6rem;
-}
-
 .w-auto {
   width: auto;
 }
@@ -1064,14 +1060,6 @@ video {
 @media (min-width: 640px) {
   .sm\:mb-0 {
     margin-bottom: 0px;
-  }
-
-  .sm\:mr-2 {
-    margin-right: 0.5rem;
-  }
-
-  .sm\:w-32 {
-    width: 8rem;
   }
 
   .sm\:grid-cols-2 {
